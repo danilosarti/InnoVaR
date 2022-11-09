@@ -16,10 +16,10 @@ knitr::opts_chunk$set(
 # InnoVaR
 
 <!-- badges: start -->
-<img src="/Volumes/T7 Touch/InnoVaR/badget/innovarbadget.png" width="240" height="276" align="right" />
+<img src="https://github.com/danilosarti/InnoVaR/blob/main/badget/innovarbadget.png" width="240" height="276" align="right" />
 <!-- badges: end -->
 
-InnoVar is an R-package for 
+InnoVar is an R-package for simulating Multi Environmental Trials in a modular manner. The package allows for simulation of continous correlated and categorial associated variables considering different continuous and categorical marginal distributions. 
 
 
 ## Installation
@@ -28,13 +28,68 @@ InnoVar is an R-package for
 
 You can install the development version from [GitHub](https://github.com/danilosarti/InnoVar) with:
 
-``` r
-# install.packages("devtools")
+```{r} 
+#install.packages("devtools")
 devtools::install_github("danilosarti/InnoVaR")
 ```
 
 You can then load the package with:
-```r
+```{r}
 library(InnoVaR)
 ```
+
+You can simulate a MET obtaining a dataset like :
+
+```{r}
+load("/Volumes/T7 Touch/InnoVaR/data/final_soil_gen.rda")
+```
+
+```{r, include=TRUE}
+head(final_soil_gen[c(1:3),c(1,5,100,102)])
+```
+
+# You can generate phenomic responses using different methods like Lasso, AMMI models and Gilberg (2019)
+
+# Simulating phenomics
+
+```{r}
+library(dplyr)
+dat <- final_soil_gen %>%
+  dplyr::mutate_if(is.character, as.factor)
+
+```
+
+```{r, include=TRUE}
+library(InnoVar)
+target <- sim_target(
+   X_gene = dat %>% dplyr::select(`trait_1`:`trait_100`),
+   X_env = dat %>% dplyr::select(`DranaigeClass`:`yes_no_sample`),
+   method = "lasso", pars = list(lambda = 0.2, sigma = 1),
+   marginal_mean = 5.3, marginal_sd = 1.5
+ )
+
+
+```
+
+```{r, include=TRUE, echo=FALSE}
+dat$target<-target$target
+
+ qplot(genotype_id, target, data = dat,
+       geom= "boxplot", fill = genotype_id)+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ggtitle("Simulated values of yield (t/ha) with Lasso")+ylab("yield (t/ha)")
+ qplot(siteid, target, data = dat,
+       geom= "boxplot", fill = siteid)+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ggtitle("Simulated values of yield (t/ha) with Lasso")+ylab("yield (t/ha)")
+ #interaction.plot(dat$genotype, dat$environment, dat$yield, fixed = TRUE)
+ dat %>%
+   group_by(genotype_id,siteid) %>%
+   summarise(mean_yield = mean(target)) ->tips2
+ tips2 %>%
+   ggplot() +
+   aes(x = siteid, y = mean_yield, color = genotype_id) +
+   geom_line(aes(group = genotype_id)) +
+   geom_point()+ggtitle("Interactions with Lasso")+ylab("mean_yield (t/ha)")+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+```
+
+
+
 
