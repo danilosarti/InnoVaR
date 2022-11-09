@@ -1,0 +1,247 @@
+---
+title: "Package Flow"
+author: "Danilo Sarti"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Package Flow}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  message = FALSE,
+  comment = "#>"
+)
+```
+
+
+# Loading Packages 
+```{r}
+library(InnoVaR)
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(readr)
+library(copula)
+library(mice)
+library(checkmate)
+library(jmuOutlier)
+library(ggpubr)
+```
+
+# Loading datasets containing the attributes of the modules to be simulated
+
+```{r}
+load("/Volumes/T7 Touch/InnoVaR/data/gen_att.rda")
+head(gen_att)
+
+load("/Volumes/T7 Touch/InnoVaR/data/soil_att_ex.rda")
+head(soil_att_ex)
+
+
+```
+
+
+# Simulating soil module:
+
+## declaring global information
+```{r}
+## declaring the number of variables in the module
+n_var_soil=ncol(soil_att_ex)
+## filtering the categorical ones.
+soil_cat=soil_att_ex %>% select(which(sapply(soil_att_ex, class) == 'character'))
+## filtering the numerical values.
+soil_num=soil_att_ex %>% select(which(sapply(soil_att_ex, class) != 'character'))
+```
+
+## Informing correlations known a priori
+
+```{r}
+known_neg_dis=calculate_trig_dis(c(-0.8016201, -0.8022176, -0.7633010))
+known_pos_dis=calculate_trig_dis(c(0.5,0.6,0.9))
+```
+
+## creating a data frame to store 
+```{r}
+n_var=ncol(soil_att_ex)
+soil_coordinates=module_coords(n_var=ncol(soil_att_ex), 
+                          which_neg=c("2_1","6_2","1_9","1_6","2_3"),
+                          dis_neg_know_ass=known_neg_dis,
+                          coo_known_neg_ass=c("2_1","6_2","1_9"),
+                          dis_pos_know_ass=known_pos_dis,
+                          coo_known_pos_ass=c("3_9","4_5","6_8"),
+                          by=0.001
+                         )
+
+```
+## creating symetric matrices of trigonometric distance or sins. 
+```{r}
+## containing the 
+sym_tri_soil=sym_mtx(vector=soil_coordinates$coords$distance, n_var=n_var,var_names=colnames(soil_att_ex))
+
+sym_sin_soil=sym_mtx(vector=soil_coordinates$coords$sin, n_var=n_var,var_names=colnames(soil_att_ex))
+```
+
+## Assuring correlation matrices 
+
+```{r}
+soil_corr=round(assure_corr(n_var=n_var,corr=sym_sin_soil),2)
+```
+
+## Setting a copula to simulation
+
+
+```{r}
+sim_data_cop=set_sim_copula(d=n_var,
+                lower_tri_corr=soil_corr[lower.tri(soil_corr,diag=FALSE)],
+            n_cont_var=ncol(soil_num),
+            cont_var_par=list(list(lambda=40),list(df=30,ncp=3),
+                  list(shape=40,scale=10),list(rate=30)) ,
+            n_unique=length(unique(na.omit(soil_att_ex$siteid))),
+           mar_cont_dists=c("pois","chisq","gamma","exp"),
+           var_names=colnames(soil_att_ex)
+            )
+```
+
+
+```{r}
+###
+cut_data_soil=cut_levels(categorical=soil_cat,
+                    cat_inc_all_levels=c("siteid","yes_no_sample"),
+levels_inc_all=list(siteid=c(1:16),yes_no_sample=c(1:2)),                   continuous_to_cut=sim_data_cop$simulated
+                    )
+head(cut_data_soil)
+```
+
+## Amputing 
+```{r}
+#amp_data_soil=ampute(cut_data_soil,mech="MAR",prop = 0.25)
+#head(amp_data_soil$amp)
+```
+
+
+# Simulating genomic module
+
+
+## declaring global information
+
+We need to simulate the I genotypes expression of n markers. We assume that the genetic constitution of the genotypes does not differ across environments.
+
+```{r}
+#our problem is to simulate the expression of 100 traits for each genotype inside each J environments. 
+known_neg_dis_gen=calculate_trig_dis(c(-0.8016201, -0.8022176, -0.7633010,0.80))
+known_pos_dis_gen=calculate_trig_dis(c(0.5,0.6,0.9,0.1))
+# we redefine the structure
+n_genotypes=10
+n_markers= ncol(gen_att)
+gen_i_expr=vector("list", length = n_markers)
+
+## we need to insert the levels of genotypes to be considered 
+genotypes_id=sprintf("genotype_%d",seq(1:n_genotypes))
+gen_att=add_to_df(gen_att,genotypes_id)
+names(gen_att)[101]="genotype_id"
+
+
+gen_i_coords=module_coords(n_var=ncol(gen_att),
+                           which_neg = c("1_2","4_5","2_3","20_4","30_3"),
+                           dis_neg_know_ass =known_neg_dis_gen,
+                        coo_known_neg_ass=c("4_5","2_3","20_4","30_3"),
+                        dis_pos_know_ass =known_pos_dis_gen,
+                        coo_known_pos_ass = c("3_9","4_5","6_8","7_8"), 
+                        by=0.0001)
+
+
+## creating the symetric matrices of distances and corrs
+sym_tri_gen_i=sym_mtx(vector=gen_i_coords$coords$distance,
+                    n_var=ncol(gen_att),
+                    var_names = colnames(gen_att)
+                    )
+sym_sin_gen_i=sym_mtx(vector=gen_i_coords$coords$sin,
+                    n_var=ncol(gen_att),
+                    var_names = colnames(gen_att)
+                    )
+gen_i_corr=round(assure_corr(n_var=ncol(gen_att),corr=sym_sin_gen_i),2)
+
+sim_data_cop_gen_i=set_sim_copula(d=ncol(gen_att),
+                            lower_tri_corr = gen_i_corr[lower.tri(gen_i_corr,diag=FALSE)],
+                            n_cont=0,
+                            cont_var_par = list(),
+                           n_unique=length(unique(na.omit(gen_att$genotype))),
+                           
+                          mar_cont_dists=c(),
+         
+           var_names=colnames(gen_att))
+
+cut_data_gen_i=cut_levels(categorical=gen_att,
+                    cat_inc_all_levels=c("genotype_id"),
+levels_inc_all=list(genotype_id=c(1:10)),                   continuous_to_cut=sim_data_cop_gen_i$simulated,corrs=gen_i_corr
+                    )
+
+## this data contains the expression of the markers
+## for each of n_genotypes
+head(cut_data_gen_i)
+## the data will repeat across n_sites environments.
+n_sites=length(na.omit(soil_att_ex$siteid))
+sites_id=sprintf("siteid_%d",seq(1:n_sites))
+gens_site_id=rep(sites_id,each=n_genotypes)
+
+abemus_genomics=do.call("rbind", replicate(n_sites, cut_data_gen_i, simplify = FALSE))
+abemus_genomics$siteid=gens_site_id
+head(abemus_genomics)  
+tail(abemus_genomics)
+```
+
+# Merging simulated and genomic simulated data.
+
+```{r}
+head(cut_data_soil)
+head(abemus_genomics)
+
+final_soil_gen<-merge(abemus_genomics,cut_data_soil, by="siteid")
+head(final_soil_gen)
+```
+
+# Simulating phenomics
+
+```{r}
+library(dplyr)
+dat <- final_soil_gen %>%
+  dplyr::mutate_if(is.character, as.factor)
+
+```
+
+```{r}
+target <- sim_target(
+   X_gene = dat %>% dplyr::select(`trait_1`:`trait_100`),
+   X_env = dat %>% dplyr::select(`DranaigeClass`:`yes_no_sample`),
+   method = "lasso", pars = list(lambda = 0.2, sigma = 1),
+   marginal_mean = 5.3, marginal_sd = 1.5
+ )
+
+ dat$target<-target$target
+
+ qplot(genotype_id, target, data = dat,
+       geom= "boxplot", fill = genotype_id)+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ggtitle("Simulated values of yield (t/ha) with Lasso")+ylab("yield (t/ha)")
+ qplot(siteid, target, data = dat,
+       geom= "boxplot", fill = siteid)+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+ggtitle("Simulated values of yield (t/ha) with Lasso")+ylab("yield (t/ha)")
+ #interaction.plot(dat$genotype, dat$environment, dat$yield, fixed = TRUE)
+ dat %>%
+   group_by(genotype_id,siteid) %>%
+   summarise(mean_yield = mean(target)) ->tips2
+ tips2 %>%
+   ggplot() +
+   aes(x = siteid, y = mean_yield, color = genotype_id) +
+   geom_line(aes(group = genotype_id)) +
+   geom_point()+ggtitle("Interactions with Lasso")+ylab("mean_yield (t/ha)")+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+
+```
+
+
+
+
