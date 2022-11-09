@@ -184,7 +184,7 @@ levels_inc_all=list(genotype_id=c(1:10)),                   continuous_to_cut=si
 
 ## this data contains the expression of the markers
 ## for each of n_genotypes
-head(cut_data_gen_i)
+head(cut_data_gen_i[1:3,c(1,4,101)])
 ## the data will repeat across n_sites environments.
 n_sites=length(na.omit(soil_att_ex$siteid))
 sites_id=sprintf("siteid_%d",seq(1:n_sites))
@@ -192,18 +192,18 @@ gens_site_id=rep(sites_id,each=n_genotypes)
 
 abemus_genomics=do.call("rbind", replicate(n_sites, cut_data_gen_i, simplify = FALSE))
 abemus_genomics$siteid=gens_site_id
-head(abemus_genomics)  
-tail(abemus_genomics)
+head(abemus_genomics[1:3,c(1,10,101,102)])  
+tail(abemus_genomics[1:3,c(1,10,101,102)])
 ```
 
 # Merging simulated and genomic simulated data.
 
 ```{r}
-head(cut_data_soil)
-head(abemus_genomics)
+#head(cut_data_soil)
+#head(abemus_genomics)
 
 final_soil_gen<-merge(abemus_genomics,cut_data_soil, by="siteid")
-head(final_soil_gen)
+head(final_soil_gen[c(1:3),c(1,5,100,102)])
 ```
 
 # Simulating phenomics

@@ -1,0 +1,27 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# InnoVaR
+
+<!-- badges: start -->
+
+<img src="/Volumes/T7 Touch/InnoVaR/badget/innovarbadget.png" width="240" height="276" align="right" />
+<!-- badges: end -->
+
+InnoVar is an R-package for
+
+## Installation
+
+You can install the development version from
+[GitHub](https://github.com/danilosarti/InnoVar) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("danilosarti/InnoVaR")
+```
+
+You can then load the package with:
+
+``` r
+library(InnoVaR)
+```
