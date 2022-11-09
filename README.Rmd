@@ -1,6 +1,8 @@
 
 ---
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -8,6 +10,8 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  message = FALSE,
+  warning = FALSE,
   comment = "#>",
   out.width = "100%"
 )
@@ -30,7 +34,7 @@ You can install the development version from [GitHub](https://github.com/danilos
 
 ```{r} 
 #install.packages("devtools")
-devtools::install_github("danilosarti/InnoVaR")
+#devtools::install_github("danilosarti/InnoVaR")
 ```
 
 You can then load the package with:
@@ -38,19 +42,22 @@ You can then load the package with:
 library(InnoVaR)
 ```
 
-You can simulate a MET obtaining a dataset like :
+# MET simulations
+
+You can simulate a MET obtaining a dataset like the one below. Details can be found in the vignette with the package flow in the Articles section. 
 
 ```{r}
 load("/Volumes/T7 Touch/InnoVaR/data/final_soil_gen.rda")
 ```
 
 ```{r, include=TRUE}
-head(final_soil_gen[c(1:3),c(1,5,100,102)])
+head(final_soil_gen[c(1:3),c(1,5,100,102,103)])
 ```
 
-# You can generate phenomic responses using different methods like Lasso, AMMI models and Gilberg (2019)
-
+ 
 # Simulating phenomics
+
+You can generate phenomic responses using different methods like Lasso, AMMI models and Gilberg (2019)
 
 ```{r}
 library(dplyr)
@@ -60,7 +67,7 @@ dat <- final_soil_gen %>%
 ```
 
 ```{r, include=TRUE}
-library(InnoVar)
+library(InnoVaR)
 target <- sim_target(
    X_gene = dat %>% dplyr::select(`trait_1`:`trait_100`),
    X_env = dat %>% dplyr::select(`DranaigeClass`:`yes_no_sample`),
@@ -71,7 +78,8 @@ target <- sim_target(
 
 ```
 
-```{r, include=TRUE, echo=FALSE}
+```{r, include=TRUE, echo=FALSE, message=FALSE}
+library(ggplot2)
 dat$target<-target$target
 
  qplot(genotype_id, target, data = dat,
