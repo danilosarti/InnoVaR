@@ -45,36 +45,41 @@ sim_target <- function(X_gene,
               marginal_mean=marginal_mean,
               marginal_sd=marginal_sd,
               X_gene=X_gene,
-              X_env=X_env))
+              X_env=X_env,
+              pars=pars))
 
 }
 
-# Version to simulate from Lasso
-sim_lasso <- function(X_gene, X_env, pars = list(lambda = 1, sigma = 1)) {
-  # Check its a data frame
-  assert_data_frame(X_gene)
-  assert_data_frame(X_env)
-  ## create a random subset of gens and envs ...
-  X <- cbind(X_gene, X_env)## next column would be a matrix x_interactions
 
-  # Turn X into a design matrix
-  mat <- model.matrix(~., data = X)
+sim_lasso <- function(X_gene, X_env, pars = list(lambda = 1, sigma = 1,k=3)) {
+    # Check its a data frame
+    assert_data_frame(X_gene)
+    assert_data_frame(X_env)
+    ## create a random subset of gens and envs ...
+    X <- cbind(X_gene, X_env)## next column would be a matrix x_interactions
+    k=pars$k
+    # Turn X into a design matrix
+    mat1 <- model.matrix(~.^2, data = X)
+    names_mat1=colnames(mat1)
+    which_int=grep(":",names_mat1)
+    mat2 <- mat1[, which_int]
+    mat=cbind(mat1[,- which_int],
+              mat2[,sample(ncol(mat2),k)])
 
 
+    ## create the pcik interaction... pick coliumsn x an y...
+    # Get the parameters from the list object
+    lambda <- pars$lambda
+    sigma <- pars$sigma
 
-  ## create the pcik interaction... pick coliumsn x an y...
-  # Get the parameters from the list object
-  lambda <- pars$lambda
-  sigma <- pars$sigma
+    # Simulate the coefficients
+    beta <- rlaplace(n = ncol(mat), s = lambda)
 
-  # Simulate the coefficients
-  beta <- rlaplace(n = ncol(mat), s = lambda)
-
-  # Simulate the target and return it
-  target <- rnorm(nrow(X), mean = mat %*% beta, sd = sigma)
-  return(target)
-  # Note: you might want to return the lambda, sigma, and beta values too if performing model identification
-}
+    # Simulate the target and return it
+    target <- rnorm(nrow(X), mean = mat %*% beta, sd = sigma)
+    return(target)
+    # Note: you might want to return the lambda, sigma, and beta values too if performing model identification
+  }
 
 # Version to simulate from AMMI
 sim_ammi <- function(X_gene,

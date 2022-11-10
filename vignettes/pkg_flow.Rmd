@@ -220,7 +220,7 @@ dat <- final_soil_gen %>%
 target <- sim_target(
    X_gene = dat %>% dplyr::select(`trait_1`:`trait_100`),
    X_env = dat %>% dplyr::select(`DranaigeClass`:`yes_no_sample`),
-   method = "lasso", pars = list(lambda = 0.2, sigma = 1),
+   method = "lasso", pars = list(lambda = 0.2, sigma = 1,k=3),
    marginal_mean = 5.3, marginal_sd = 1.5
  )
 

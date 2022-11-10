@@ -28,6 +28,9 @@
     <loc>/reference/cut_levels.html</loc>
   </url>
   <url>
+    <loc>/reference/gen_att.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
@@ -43,6 +46,15 @@
     <loc>/reference/sim_target.html</loc>
   </url>
   <url>
+    <loc>/reference/soil_att_ex.html</loc>
+  </url>
+  <url>
+    <loc>/reference/soil_att_innovar.html</loc>
+  </url>
+  <url>
     <loc>/reference/sym_mtx.html</loc>
+  </url>
+  <url>
+    <loc>/reference/toy_data.html</loc>
   </url>
 </urlset>

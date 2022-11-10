@@ -36,10 +36,6 @@ can be found in the vignette with the package flow in the Articles
 section.
 
 ``` r
-load("/Volumes/T7 Touch/InnoVaR/data/final_soil_gen.rda")
-```
-
-``` r
 head(final_soil_gen[c(1:3),c(1,5,100,102,103)])
 #>     siteid trait_4 trait_99   genotype_id       DranaigeClass
 #> 1 siteid_1       0        2 genotype_id_1 Imperfectly drained
@@ -63,7 +59,7 @@ library(InnoVaR)
 target <- sim_target(
    X_gene = dat %>% dplyr::select(`trait_1`:`trait_100`),
    X_env = dat %>% dplyr::select(`DranaigeClass`:`yes_no_sample`),
-   method = "lasso", pars = list(lambda = 0.2, sigma = 1),
+   method = "lasso", pars = list(lambda = 0.5, sigma = 2,k=3),
    marginal_mean = 5.3, marginal_sd = 1.5
  )
 ```

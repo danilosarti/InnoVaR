@@ -1,11 +1,10 @@
-
 ---
 output: github_document
-editor_options: 
-  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -46,7 +45,7 @@ library(InnoVaR)
 
 You can simulate a MET obtaining a dataset like the one below. Details can be found in the vignette with the package flow in the Articles section. 
 
-```{r}
+```{r, include=FALSE}
 load("/Volumes/T7 Touch/InnoVaR/data/final_soil_gen.rda")
 ```
 
@@ -71,7 +70,7 @@ library(InnoVaR)
 target <- sim_target(
    X_gene = dat %>% dplyr::select(`trait_1`:`trait_100`),
    X_env = dat %>% dplyr::select(`DranaigeClass`:`yes_no_sample`),
-   method = "lasso", pars = list(lambda = 0.2, sigma = 1),
+   method = "lasso", pars = list(lambda = 0.5, sigma = 2,k=3),
    marginal_mean = 5.3, marginal_sd = 1.5
  )
 
