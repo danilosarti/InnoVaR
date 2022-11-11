@@ -17,7 +17,7 @@ sym_mtx(vector = 1:25, n_var = 5, var_names = c("v1", "v2", "v3", "v4", "v5"))
 a symmetric matrix
 }
 \description{
-Create a symetric matrix with n_var rows and n_var columns
+create a symetric matrix with n_var rows and n_var columns
 }
 \examples{
 sym_mtx(vector=c(1:25), n_var=5,var_names=c("v1","v2","v3","v4","v5"))

@@ -1,6 +1,6 @@
 #' sym_mtx
 #'
-#' Create a symetric matrix with n_var rows and n_var columns
+#' create a symetric matrix with n_var rows and n_var columns
 #'
 #' @param vector a vector containing values to be used in the matrix creation
 #' @param n_var number of variables

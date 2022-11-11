@@ -3,7 +3,7 @@
 \docType{data}
 \name{gen_att}
 \alias{gen_att}
-\title{Genomic attributes considered}
+\title{genomic attributes considered in the simulations}
 \format{
 \subsection{\code{gen_att}}{
 

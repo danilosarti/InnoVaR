@@ -1,4 +1,4 @@
-#' Genomic attributes considered
+#' genomic attributes considered in the simulations
 #'
 #' A dataset containing attributes used to simulate genomic information
 #'
