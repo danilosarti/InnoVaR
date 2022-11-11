@@ -1,6 +1,6 @@
 Package: InnoVaR
 Title: InnoVar a package to simulate MET
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Danilo", "Augusto Sarti", , "danilo.sarti@mu.ie", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0001-8148-2803"))
