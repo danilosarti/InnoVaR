@@ -240,6 +240,7 @@ target <- sim_target(
    geom_line(aes(group = genotype_id)) +
    geom_point()+ggtitle("Interactions with Lasso")+ylab("mean_yield (t/ha)")+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+ 
 
 ```
 

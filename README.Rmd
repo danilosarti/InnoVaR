@@ -73,7 +73,7 @@ target <- sim_target(
    method = "lasso", pars = list(lambda = 0.5, sigma = 2,k=3),
    marginal_mean = 5.3, marginal_sd = 1.5
  )
-head(target)
+head(target$target)
 
 ```
 
@@ -89,12 +89,16 @@ head(target)
 #  dat %>%
 #    group_by(genotype_id,siteid) %>%
 #    summarise(mean_yield = mean(target)) ->tips2
-#  tips2 %>%
+#  ggplot=tips2 %>%
 #    ggplot() +
 #    aes(x = siteid, y = mean_yield, color = genotype_id) +
 #    geom_line(aes(group = genotype_id)) +
 #    geom_point()+ggtitle("Interactions with Lasso")+ylab("mean_yield (t/ha)")+ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+#  
+#  
+#  
 ```
+
 
 
 
