@@ -24,6 +24,8 @@ knitr::opts_chunk$set(
 
 InnoVar is an R-package for simulating Multi Environmental Trials in a modular manner. The package allows for simulation of continous correlated and categorial associated variables considering different continuous and categorical marginal distributions. 
 
+Details are described in the package [vignette](https://danilosarti.github.io/InnoVaR/) 
+
 
 ## Installation
 
@@ -40,6 +42,7 @@ You can then load the package with:
 ```{r}
 library(InnoVaR)
 ```
+
 
 # MET simulations
 

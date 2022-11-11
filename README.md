@@ -13,6 +13,9 @@ modular manner. The package allows for simulation of continous
 correlated and categorial associated variables considering different
 continuous and categorical marginal distributions.
 
+Details are described in the package
+[vignette](https://danilosarti.github.io/InnoVaR/)
+
 ## Installation
 
 You can install the development version from
@@ -63,5 +66,5 @@ target <- sim_target(
    marginal_mean = 5.3, marginal_sd = 1.5
  )
 head(target$target)
-#> [1] 3.424401 5.691983 3.980660 5.896131 3.554923 3.829318
+#> [1] 3.692807 4.573174 6.584955 4.172323 4.879207 6.431688
 ```
