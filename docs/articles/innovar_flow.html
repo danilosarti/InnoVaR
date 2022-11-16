@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Package Flow • InnoVaR</title>
+<title>InnoVar simulations • InnoVaR</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Package Flow">
+<script src="../pkgdown.js"></script><meta property="og:title" content="InnoVar simulations">
 <meta property="og:description" content="InnoVaR">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -71,13 +71,13 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Package Flow</h1>
+      <h1 data-toc-skip>InnoVar simulations</h1>
                         <h4 data-toc-skip class="author">Danilo Sarti</h4>
             
             <h4 data-toc-skip class="date">2022-11-16</h4>
       
       
-      <div class="hidden name"><code>pkg_flow.Rmd</code></div>
+      <div class="hidden name"><code>innovar_flow.Rmd</code></div>
 
     </div>
 
@@ -129,18 +129,25 @@
 <span><span class="co">#&gt; <span style="color: #949494;">#   trait_29 &lt;chr&gt;, trait_30 &lt;chr&gt;, trait_31 &lt;chr&gt;, trait_32 &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   trait_33 &lt;chr&gt;, trait_34 &lt;chr&gt;, trait_35 &lt;chr&gt;, trait_36 &lt;chr&gt;, …</span></span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span><span class="st">"/Volumes/T7 Touch/InnoVaR/data/soil_att_ex.rda"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">soil_att_ex</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 9</span></span></span>
-<span><span class="co">#&gt;   yes_no_sample siteid DranaigeClass     Litho…¹ Litho…² N     P     K     Clay </span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Yes           1      Very poorly drain Igneou… IA      <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> No            2      Poorly drained    Metamo… II      <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="color: #BB0000;">NA</span>            3      Imperfectly drai… Sedime… IB      <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="color: #BB0000;">NA</span>            4      Moderately well … Sedime… IU      <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> <span style="color: #BB0000;">NA</span>            5      Well drained      <span style="color: #BB0000;">NA</span>      IP      <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> <span style="color: #BB0000;">NA</span>            6      Somewhat excessi… <span style="color: #BB0000;">NA</span>      MA      <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with abbreviated variable names ¹​LithologyValueClass, ²​LithologyValueGroup</span></span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html" class="external-link">load</a></span><span class="op">(</span><span class="st">"/Volumes/T7 Touch/InnoVaR/data/soil_att_innovar.rda"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">soil_att_innovar</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 129</span></span></span>
+<span><span class="co">#&gt;   yes_n…¹ siteid Drana…² Weath…³ Weath…⁴ USDAT…⁵ USDAM…⁶ Physi…⁷ Major…⁸ Major…⁹</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> Yes     1      Very p… Sunny/… No rai… Pergel… Aquic   Crest … Level … Plain  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> No      2      Poorly… Partly… No rai… Cryic   Udic    Upper … Slopin… Plateau</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> <span style="color: #BB0000;">NA</span>      3      Imperf… Overca… No rai… Frigid  Ustic   Middle… Steep … Depres…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> <span style="color: #BB0000;">NA</span>      4      Modera… Rain    Rainy … Mesic   Xeric   Lower … <span style="color: #BB0000;">NA</span>      Valley…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> <span style="color: #BB0000;">NA</span>      5      Well d… Sleet   Heavie… Thermic Aridic  Toe sl… <span style="color: #BB0000;">NA</span>      Medium…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> <span style="color: #BB0000;">NA</span>      6      Somewh… Snow    Extrem… Hypert… Peraqu… Bottom… <span style="color: #BB0000;">NA</span>      Medium…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 119 more variables: LandformComplexValue &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   SlopePathwaysValue &lt;chr&gt;, SlopeFormValue &lt;chr&gt;, SlopeGradientValue &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   SlopeOrientation &lt;chr&gt;, LandUseClassValue1 &lt;chr&gt;, LandUseClassValue2 &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   LandUseClassValue3 &lt;chr&gt;, CropClassValue1 &lt;chr&gt;, CropClassValue2 &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   HumanInfluenceClassValue &lt;chr&gt;, VegetationClassValue1 &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   VegetationClassValue2 &lt;chr&gt;, LithologyValueClass &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   LithologyValueGroup &lt;chr&gt;, LithologyValueType &lt;chr&gt;, …</span></span></span>
+<span><span class="va">soil_att_ex</span><span class="op">=</span><span class="va">soil_att_innovar</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="simulating-soil-module">Simulating soil module:<a class="anchor" aria-label="anchor" href="#simulating-soil-module"></a>
@@ -174,7 +181,7 @@
 <span>                          coo_known_neg_ass<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2_1"</span>,<span class="st">"6_2"</span>,<span class="st">"1_9"</span><span class="op">)</span>,</span>
 <span>                          dis_pos_know_ass<span class="op">=</span><span class="va">known_pos_dis</span>,</span>
 <span>                          coo_known_pos_ass<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3_9"</span>,<span class="st">"4_5"</span>,<span class="st">"6_8"</span><span class="op">)</span>,</span>
-<span>                          by<span class="op">=</span><span class="fl">0.001</span></span>
+<span>                          by<span class="op">=</span><span class="fl">0.00001</span><span class="co">## this should be small </span></span>
 <span>                         <span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -190,7 +197,12 @@
 <h3 id="assuring-correlation-matrices">Assuring correlation matrices<a class="anchor" aria-label="anchor" href="#assuring-correlation-matrices"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">soil_corr</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="../reference/assure_corr.html">assure_corr</a></span><span class="op">(</span>n_var<span class="op">=</span><span class="va">n_var</span>,corr<span class="op">=</span><span class="va">sym_sin_soil</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">soil_corr</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="../reference/assure_corr.html">assure_corr</a></span><span class="op">(</span>n_var<span class="op">=</span><span class="va">n_var</span>,corr<span class="op">=</span><span class="va">sym_sin_soil</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">matrixcalc</span><span class="op">)</span></span>
+<span><span class="va">soil_corr</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">soil_corr</span><span class="op">)</span></span>
+<span><span class="co">#Checking if its positive definite.. if you round the matrix it can be not positie definite.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/matrixcalc/man/is.positive.definite.html" class="external-link">is.positive.definite</a></span><span class="op">(</span><span class="va">soil_corr</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="setting-a-copula-to-simulation">Setting a copula to simulation<a class="anchor" aria-label="anchor" href="#setting-a-copula-to-simulation"></a>
@@ -200,38 +212,335 @@
 <span>                lower_tri_corr<span class="op">=</span><span class="va">soil_corr</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html" class="external-link">lower.tri</a></span><span class="op">(</span><span class="va">soil_corr</span>,diag<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">]</span>,</span>
 <span>            n_cont_var<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">soil_num</span><span class="op">)</span>,</span>
 <span>            cont_var_par<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lambda<span class="op">=</span><span class="fl">40</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>df<span class="op">=</span><span class="fl">30</span>,ncp<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,</span>
-<span>                  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">40</span>,scale<span class="op">=</span><span class="fl">10</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>rate<span class="op">=</span><span class="fl">30</span><span class="op">)</span><span class="op">)</span> ,</span>
+<span>                  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">40</span>,scale<span class="op">=</span><span class="fl">10</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>rate<span class="op">=</span><span class="fl">30</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lambda<span class="op">=</span><span class="fl">40</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>df<span class="op">=</span><span class="fl">30</span>,ncp<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,</span>
+<span>                  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">40</span>,scale<span class="op">=</span><span class="fl">10</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>rate<span class="op">=</span><span class="fl">30</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lambda<span class="op">=</span><span class="fl">40</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>df<span class="op">=</span><span class="fl">30</span>,ncp<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,</span>
+<span>                  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">40</span>,scale<span class="op">=</span><span class="fl">10</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>rate<span class="op">=</span><span class="fl">30</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lambda<span class="op">=</span><span class="fl">40</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>df<span class="op">=</span><span class="fl">30</span>,ncp<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,</span>
+<span>                  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">40</span>,scale<span class="op">=</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span> ,</span>
 <span>            n_unique<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></span><span class="op">(</span><span class="va">soil_att_ex</span><span class="op">$</span><span class="va">siteid</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>           mar_cont_dists<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pois"</span>,<span class="st">"chisq"</span>,<span class="st">"gamma"</span>,<span class="st">"exp"</span><span class="op">)</span>,</span>
+<span>           mar_cont_dists<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pois"</span>,<span class="st">"chisq"</span>,<span class="st">"gamma"</span>,<span class="st">"exp"</span>,<span class="st">"pois"</span>,<span class="st">"chisq"</span>,<span class="st">"gamma"</span>,<span class="st">"exp"</span>,<span class="st">"pois"</span>,<span class="st">"chisq"</span>,<span class="st">"gamma"</span>,<span class="st">"exp"</span>,<span class="st">"pois"</span>,<span class="st">"chisq"</span>,<span class="st">"gamma"</span><span class="op">)</span>,</span>
 <span>           var_names<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">soil_att_ex</span><span class="op">)</span></span>
 <span>            <span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">###</span></span>
 <span><span class="va">cut_data_soil</span><span class="op">=</span><span class="fu"><a href="../reference/cut_levels.html">cut_levels</a></span><span class="op">(</span>categorical<span class="op">=</span><span class="va">soil_cat</span>,</span>
-<span>                    cat_inc_all_levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"siteid"</span>,<span class="st">"yes_no_sample"</span><span class="op">)</span>,</span>
-<span>levels_inc_all<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>siteid<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span><span class="op">)</span>,yes_no_sample<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>,                   continuous_to_cut<span class="op">=</span><span class="va">sim_data_cop</span><span class="op">$</span><span class="va">simulated</span></span>
+<span>                    cat_inc_all_levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"siteid"</span><span class="op">)</span>,</span>
+<span>levels_inc_all<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>siteid<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span><span class="op">)</span><span class="op">)</span>,                   continuous_to_cut<span class="op">=</span><span class="va">sim_data_cop</span><span class="op">$</span><span class="va">simulated</span></span>
 <span>                    <span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cut_data_soil</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                  DranaigeClass             LithologyValueClass</span></span>
-<span><span class="co">#&gt; 1 Somewhat excessively drained Sedimentary rock (consolidated)</span></span>
-<span><span class="co">#&gt; 2                 Well drained Sedimentary rock (consolidated)</span></span>
-<span><span class="co">#&gt; 3               Poorly drained                Metamorphic rock</span></span>
-<span><span class="co">#&gt; 4      Moderately well drained                Metamorphic rock</span></span>
-<span><span class="co">#&gt; 5                 Well drained                Metamorphic rock</span></span>
-<span><span class="co">#&gt; 6            Very poorly drain                Metamorphic rock</span></span>
-<span><span class="co">#&gt;   LithologyValueGroup   siteid   yes_no_sample</span></span>
-<span><span class="co">#&gt; 1                  UO siteid_1 yes_no_sample_1</span></span>
-<span><span class="co">#&gt; 2                  UK siteid_2 yes_no_sample_2</span></span>
-<span><span class="co">#&gt; 3                  UU siteid_3 yes_no_sample_1</span></span>
-<span><span class="co">#&gt; 4                  IB siteid_4 yes_no_sample_2</span></span>
-<span><span class="co">#&gt; 5                  MB siteid_5 yes_no_sample_1</span></span>
-<span><span class="co">#&gt; 6                  SE siteid_6 yes_no_sample_2</span></span></code></pre></div>
+<span><span class="co">#&gt;   yes_no_sample           DranaigeClass WeatherConditionsValue_present</span></span>
+<span><span class="co">#&gt; 1            No     Excessively drained                          Sleet</span></span>
+<span><span class="co">#&gt; 2           Yes Moderately well drained                          Sleet</span></span>
+<span><span class="co">#&gt; 3            No     Imperfectly drained                       Overcast</span></span>
+<span><span class="co">#&gt; 4            No Moderately well drained                           Snow</span></span>
+<span><span class="co">#&gt; 5           Yes     Imperfectly drained                           Rain</span></span>
+<span><span class="co">#&gt; 6           Yes     Imperfectly drained                       Overcast</span></span>
+<span><span class="co">#&gt;                                   WeatherConditionsValue_former USDATempCode</span></span>
+<span><span class="co">#&gt; 1                 Rainy without heavy rain in the last 24 hours     Isomesic</span></span>
+<span><span class="co">#&gt; 2                                      No rain in the last week     Pergelic</span></span>
+<span><span class="co">#&gt; 3                          Extremely rainy time or snow melting        Cryic</span></span>
+<span><span class="co">#&gt; 4 Heavier rain for some days or rainstorms in the last 24 hours     Pergelic</span></span>
+<span><span class="co">#&gt; 5                                  No rain in the last 24 hours      Thermic</span></span>
+<span><span class="co">#&gt; 6                                      No rain in the last week     Isomesic</span></span>
+<span><span class="co">#&gt;   USDAMoistureCode        PhysiographyValue MajorLandformValue1</span></span>
+<span><span class="co">#&gt; 1            Ustic Lower slope (foot slope)          Level land</span></span>
+<span><span class="co">#&gt; 2         Peraquic   Upper slope (shoulder)        Sloping land</span></span>
+<span><span class="co">#&gt; 3            Xeric   Bottom (drainage line)          Steep land</span></span>
+<span><span class="co">#&gt; 4         Peraquic                Toe slope          Steep land</span></span>
+<span><span class="co">#&gt; 5           Aridic           Crest (summit)          Level land</span></span>
+<span><span class="co">#&gt; 6            Aquic                Toe slope          Steep land</span></span>
+<span><span class="co">#&gt;               MajorLandformValue2     LandformComplexValue SlopePathwaysValue</span></span>
+<span><span class="co">#&gt; 1          Medium-gradient valley                   Ridged                 SS</span></span>
+<span><span class="co">#&gt; 2          Medium-gradient valley                 Terraced                 VC</span></span>
+<span><span class="co">#&gt; 3        Medium-gradient mountain            With wetlands                 SS</span></span>
+<span><span class="co">#&gt; 4                      Depression                 Terraced                 SC</span></span>
+<span><span class="co">#&gt; 5                    Valley floor With intermontane plains                 SC</span></span>
+<span><span class="co">#&gt; 6 Medium-gradient escarpment zone With intermontane plains                 CC</span></span>
+<span><span class="co">#&gt;        SlopeFormValue  SlopeGradientValue SlopeOrientation</span></span>
+<span><span class="co">#&gt; 1             Concave    Strongly sloping            South</span></span>
+<span><span class="co">#&gt; 2            Straight             Sloping  East-north-east</span></span>
+<span><span class="co">#&gt; 3             Concave                Flat       North-east</span></span>
+<span><span class="co">#&gt; 4 Complex (Irregular)                Flat       North-east</span></span>
+<span><span class="co">#&gt; 5             Concave               Steep       North-east</span></span>
+<span><span class="co">#&gt; 6 Complex (Irregular) Very gently sloping             West</span></span>
+<span><span class="co">#&gt;            LandUseClassValue1           LandUseClassValue2</span></span>
+<span><span class="co">#&gt; 1 Crop agriculture (cropping)                 Agroforestry</span></span>
+<span><span class="co">#&gt; 2 Crop agriculture (cropping) Nature and game preservation</span></span>
+<span><span class="co">#&gt; 3            Animal husbandry              Residential use</span></span>
+<span><span class="co">#&gt; 4    Not used and not managed            Extensive grazing</span></span>
+<span><span class="co">#&gt; 5            Animal husbandry                    Transport</span></span>
+<span><span class="co">#&gt; 6                    Forestry              Residential use</span></span>
+<span><span class="co">#&gt;                     LandUseClassValue3               CropClassValue1</span></span>
+<span><span class="co">#&gt; 1  Non-irrigated tree crop cultivation                    Vegetables</span></span>
+<span><span class="co">#&gt; 2 Non-irrigated shrub crop cultivation                   Fibre crops</span></span>
+<span><span class="co">#&gt; 3  Non-irrigated tree crop cultivation                   Other crops</span></span>
+<span><span class="co">#&gt; 4  Non-irrigated tree crop cultivation Semi-luxury foods and tobacco</span></span>
+<span><span class="co">#&gt; 5                 Shifting cultivation                    Vegetables</span></span>
+<span><span class="co">#&gt; 6      Irrigated tree crop cultivation              Roots and tubers</span></span>
+<span><span class="co">#&gt;   CropClassValue2                               HumanInfluenceClassValue</span></span>
+<span><span class="co">#&gt; 1      Leguminous                                           No influence</span></span>
+<span><span class="co">#&gt; 2          Barley Mine (surface, including openpit, gravel and quarries)</span></span>
+<span><span class="co">#&gt; 3      Leguminous                        Vegetation moderately disturbed</span></span>
+<span><span class="co">#&gt; 4        Soybeans                             Application of fertilizers</span></span>
+<span><span class="co">#&gt; 5          Rubber                                              Pollution</span></span>
+<span><span class="co">#&gt; 6         Lentils                                              Pollution</span></span>
+<span><span class="co">#&gt;      VegetationClassValue1 VegetationClassValue2</span></span>
+<span><span class="co">#&gt; 1 Groundwater-fed bog peat     Xeromorphic shrub</span></span>
+<span><span class="co">#&gt; 2                 Woodland  Xeromorphic woodland</span></span>
+<span><span class="co">#&gt; 3                 Woodland       Deciduous shrub</span></span>
+<span><span class="co">#&gt; 4              Dwarf shrub    Evergreen woodland</span></span>
+<span><span class="co">#&gt; 5                 Woodland    Evergreen woodland</span></span>
+<span><span class="co">#&gt; 6                    Shrub       Deciduous shrub</span></span>
+<span><span class="co">#&gt;               LithologyValueClass LithologyValueGroup LithologyValueType</span></span>
+<span><span class="co">#&gt; 1 Sedimentary rock (consolidated)                  IA                SC5</span></span>
+<span><span class="co">#&gt; 2                Metamorphic rock                  UR                IP2</span></span>
+<span><span class="co">#&gt; 3                    Igneous rock                  UU                UM2</span></span>
+<span><span class="co">#&gt; 4                    Igneous rock                  II                UU5</span></span>
+<span><span class="co">#&gt; 5                Metamorphic rock                  UC                UC1</span></span>
+<span><span class="co">#&gt; 6                Metamorphic rock                  SO                IU2</span></span>
+<span><span class="co">#&gt;   SurfaceAgeValue RockOutcropsCoverValue RockOutcropsDistanceValue</span></span>
+<span><span class="co">#&gt; 1             lPf               Abundant                     &lt; 2 m</span></span>
+<span><span class="co">#&gt; 2              Ha               Abundant                     2–5 m</span></span>
+<span><span class="co">#&gt; 3               T               Dominant                     2–5 m</span></span>
+<span><span class="co">#&gt; 4             lPf                   None                    5–20 m</span></span>
+<span><span class="co">#&gt; 5             oPp                 Common                    &gt; 50 m</span></span>
+<span><span class="co">#&gt; 6             lPi                 Common                    &gt; 50 m</span></span>
+<span><span class="co">#&gt;   FragmentCoverValue FragmentsSizeValue</span></span>
+<span><span class="co">#&gt; 1               Many        Fine gravel</span></span>
+<span><span class="co">#&gt; 2           Abundant      Coarse gravel</span></span>
+<span><span class="co">#&gt; 3           Very few             Stones</span></span>
+<span><span class="co">#&gt; 4                Few      Coarse gravel</span></span>
+<span><span class="co">#&gt; 5           Dominant        Fine gravel</span></span>
+<span><span class="co">#&gt; 6             Common        Fine gravel</span></span>
+<span><span class="co">#&gt;                              ErosionCategoryValue1       ErosionCategoryValue2</span></span>
+<span><span class="co">#&gt; 1 Mass movement (landslides and similar phenomena) Wind erosion and deposition</span></span>
+<span><span class="co">#&gt; 2                                        Not known             Wind deposition</span></span>
+<span><span class="co">#&gt; 3             Wind (aeolian) erosion or deposition              Tunnel erosion</span></span>
+<span><span class="co">#&gt; 4 Mass movement (landslides and similar phenomena)             Wind deposition</span></span>
+<span><span class="co">#&gt; 5                           No evidence of erosion Wind erosion and deposition</span></span>
+<span><span class="co">#&gt; 6             Wind (aeolian) erosion or deposition               Gully erosion</span></span>
+<span><span class="co">#&gt;   ErosionTotalAreaAffectedValue ErosionDegreeValue</span></span>
+<span><span class="co">#&gt; 1                       25–50 %           Moderate</span></span>
+<span><span class="co">#&gt; 2                           0 %            Extreme</span></span>
+<span><span class="co">#&gt; 3                           0 %            Extreme</span></span>
+<span><span class="co">#&gt; 4                           0 %             Severe</span></span>
+<span><span class="co">#&gt; 5                        &gt; 50 %             Severe</span></span>
+<span><span class="co">#&gt; 6                       10–25 %            Extreme</span></span>
+<span><span class="co">#&gt;                          ErosionActivityPeriodValue SealingThicknessValue</span></span>
+<span><span class="co">#&gt; 1 Accelerated and natural erosion not distinguished                 Thick</span></span>
+<span><span class="co">#&gt; 2 Accelerated and natural erosion not distinguished            Very thick</span></span>
+<span><span class="co">#&gt; 3                        Active in historical times                  Thin</span></span>
+<span><span class="co">#&gt; 4                      Period of activity not known                Medium</span></span>
+<span><span class="co">#&gt; 5                                 Active at present                  Thin</span></span>
+<span><span class="co">#&gt; 6                             Active in recent past                 Thick</span></span>
+<span><span class="co">#&gt;   SealingConsistenceValue      CracksWidthValue   CracksDepthValue</span></span>
+<span><span class="co">#&gt; 1                    Hard Very wide (5 - 10 cm)   Surface (&lt; 2 cm)</span></span>
+<span><span class="co">#&gt; 2               Very hard       Wide (2 - 5 cm)   Surface (&lt; 2 cm)</span></span>
+<span><span class="co">#&gt; 3           Slightly hard    No cracks observed Medium (2 - 10 cm)</span></span>
+<span><span class="co">#&gt; 4           Slightly hard    No cracks observed  Deep (10 - 20 cm)</span></span>
+<span><span class="co">#&gt; 5                    Hard Very wide (5 - 10 cm)   Surface (&lt; 2 cm)</span></span>
+<span><span class="co">#&gt; 6                    Hard     Medium (1 - 2 cm)  Deep (10 - 20 cm)</span></span>
+<span><span class="co">#&gt;                    CracksDistanceValue       SaltCoverValue SaltThicknessValue</span></span>
+<span><span class="co">#&gt; 1 Moderately widely spaced (0,5 - 2 m)     Dominant (&gt; 80%)      Thin (&lt; 2 mm)</span></span>
+<span><span class="co">#&gt; 2             Widely spaced  (2 - 5 m)       None (0 - 2 %)      Thin (&lt; 2 mm)</span></span>
+<span><span class="co">#&gt; 3             Widely spaced  (2 - 5 m)       Low (2 - 15 %)  Medium (2 - 5 mm)</span></span>
+<span><span class="co">#&gt; 4             Widely spaced  (2 - 5 m) Moderate (15 - 40 %)      Thin (&lt; 2 mm)</span></span>
+<span><span class="co">#&gt; 5          Closely space (0,2 - 0,5 m) Moderate (15 - 40 %)  Medium (2 - 5 mm)</span></span>
+<span><span class="co">#&gt; 6          Closely space (0,2 - 0,5 m)       Low (2 - 15 %)  Medium (2 - 5 mm)</span></span>
+<span><span class="co">#&gt;   BleachedSandValue BoundaryDistinctnessValue</span></span>
+<span><span class="co">#&gt; 1    None (0 - 2 %)         Abrupt (0 - 2 cm)</span></span>
+<span><span class="co">#&gt; 2    Low (2 - 15 %)       Gradual (5 - 15 cm)</span></span>
+<span><span class="co">#&gt; 3    None (0 - 2 %)         Abrupt (0 - 2 cm)</span></span>
+<span><span class="co">#&gt; 4    None (0 - 2 %)         Abrupt (0 - 2 cm)</span></span>
+<span><span class="co">#&gt; 5  High (40 - 80 %)          Clear (2 - 5 cm)</span></span>
+<span><span class="co">#&gt; 6  Dominant (&gt; 80%)         Abrupt (0 - 2 cm)</span></span>
+<span><span class="co">#&gt;                  BoundaryTopographyValue FieldTexture       TextureValue</span></span>
+<span><span class="co">#&gt; 1           Smooth; nearly plane surface         Clay               Loam</span></span>
+<span><span class="co">#&gt; 2 Irregular; pockets more deep than wide         Clay         Sandy clay</span></span>
+<span><span class="co">#&gt; 3      Wavy; pockets less deep than wide         Clay Sand (unspecified)</span></span>
+<span><span class="co">#&gt; 4           Smooth; nearly plane surface         Clay               Silt</span></span>
+<span><span class="co">#&gt; 5      Wavy; pockets less deep than wide         Sand          Clay loam</span></span>
+<span><span class="co">#&gt; 6      Wavy; pockets less deep than wide         Sand Sand (unspecified)</span></span>
+<span><span class="co">#&gt;   SandyTextureValue     TextureClassValue   ArtefactsAbundance</span></span>
+<span><span class="co">#&gt; 1       Coarse sand                  Loam        Few (2 - 5 %)</span></span>
+<span><span class="co">#&gt; 2       Coarse sand Silt loam (clay-poor)     Common (5 -15 %)</span></span>
+<span><span class="co">#&gt; 3 Loamy coarse sand       Sandy clay loam Abundant (40 - 80 %)</span></span>
+<span><span class="co">#&gt; 4       Medium sand            Heavy clay Abundant (40 - 80 %)</span></span>
+<span><span class="co">#&gt; 5       Coarse sand Silt loam (clay-poor) Abundant (40 - 80 %)</span></span>
+<span><span class="co">#&gt; 6    Sand, unsorted Silt loam (clay-poor)        Few (2 - 5 %)</span></span>
+<span><span class="co">#&gt;              RockSizeValue2           ArtefactsSizeValue</span></span>
+<span><span class="co">#&gt; 1 Large boulders (&gt; 600 mm) Medium artefacts (6 - 20 mm)</span></span>
+<span><span class="co">#&gt; 2 Medium gravel (6 - 20 mm)    Fine artefacts (2 - 6 mm)</span></span>
+<span><span class="co">#&gt; 3   Boulders (200 - 600 mm)   Coarse artefacts (&gt; 20 mm)</span></span>
+<span><span class="co">#&gt; 4 Large boulders (&gt; 600 mm)    Fine artefacts (2 - 6 mm)</span></span>
+<span><span class="co">#&gt; 5    Fine gravel (2 - 6 mm) Medium artefacts (6 - 20 mm)</span></span>
+<span><span class="co">#&gt; 6      Stones (60 - 200 mm) Medium artefacts (6 - 20 mm)</span></span>
+<span><span class="co">#&gt;                 ArtefactsSizeCombi RockShapeValue    ArtefactsWeatheringValue</span></span>
+<span><span class="co">#&gt; 1              Stones and boulders           Flat Fresh or slightly weathered</span></span>
+<span><span class="co">#&gt; 2      Boulders and large boulders           Flat                   Weathered</span></span>
+<span><span class="co">#&gt; 3      Boulders and large boulders        Angular                   Weathered</span></span>
+<span><span class="co">#&gt; 4 Fine and medium gravel/artefacts     Subrounded          Strongly weathered</span></span>
+<span><span class="co">#&gt; 5              Stones and boulders        Angular                   Weathered</span></span>
+<span><span class="co">#&gt; 6              Stones and boulders           Flat                   Weathered</span></span>
+<span><span class="co">#&gt;   MineralFragmentsValue PeatDecompostionValue    AbundanceValue       SizeValue</span></span>
+<span><span class="co">#&gt; 1                Quartz                    D2 Abundant (&gt; 40 %) Fine (2 - 6 mm)</span></span>
+<span><span class="co">#&gt; 2                  Mica                  D5.1  Common (5 -15 %) Fine (2 - 6 mm)</span></span>
+<span><span class="co">#&gt; 3                Quartz                    D1  Common (5 -15 %) Fine (2 - 6 mm)</span></span>
+<span><span class="co">#&gt; 4                Quartz                    D2 Abundant (&gt; 40 %)   Coarse (&gt; 20)</span></span>
+<span><span class="co">#&gt; 5                  Mica                    D2          None (-) Fine (2 - 6 mm)</span></span>
+<span><span class="co">#&gt; 6                  Mica                    D1  Common (5 -15 %)   Coarse (&gt; 20)</span></span>
+<span><span class="co">#&gt;   ContrastValue BoundaryClassificationValue CarbonatesContentValue</span></span>
+<span><span class="co">#&gt; 1     Prominent          Clear (0,5 - 2 mm)   Extremely calcareous</span></span>
+<span><span class="co">#&gt; 2         Faint          Clear (0,5 - 2 mm)    Strongly calcareous</span></span>
+<span><span class="co">#&gt; 3         Faint            Sharp (&lt; 0,5 mm)         Non-calcareous</span></span>
+<span><span class="co">#&gt; 4      Distinct            Sharp (&lt; 0,5 mm)   Extremely calcareous</span></span>
+<span><span class="co">#&gt; 5         Faint            Sharp (&lt; 0,5 mm)  Moderately calcareous</span></span>
+<span><span class="co">#&gt; 6         Faint             Diffuse (&gt; 2mm)   Extremely calcareous</span></span>
+<span><span class="co">#&gt;                          CarbonatesFormsValue  GypsumContentValue</span></span>
+<span><span class="co">#&gt; 1                               Pseudomycelia Moderately gypsiric</span></span>
+<span><span class="co">#&gt; 2                            Soft concretions  Extremely gypsiric</span></span>
+<span><span class="co">#&gt; 3                     Hard hollow concretions  Extremely gypsiric</span></span>
+<span><span class="co">#&gt; 4 Hard cemented layer or layers of carbonates        Non-gypsiric</span></span>
+<span><span class="co">#&gt; 5                            Hard concretions  Extremely gypsiric</span></span>
+<span><span class="co">#&gt; 6                            Soft concretions   Slightly gypsiric</span></span>
+<span><span class="co">#&gt;                          GypsumFormsValue SaltContentValue   WaterContentSat</span></span>
+<span><span class="co">#&gt; 1                                 “gazha”               EX        Gravel, CS</span></span>
+<span><span class="co">#&gt; 2                 Disperse powdery gypsum               ST   SiL 10–27% clay</span></span>
+<span><span class="co">#&gt; 3                        Soft concretions              VST   SiL 10–27% clay</span></span>
+<span><span class="co">#&gt; 4                 Disperse powdery gypsum               MO          CL, SiCL</span></span>
+<span><span class="co">#&gt; 5                 Disperse powdery gypsum                N LS, SL &lt; 10% clay</span></span>
+<span><span class="co">#&gt; 6 Hard cemented layer or layers of gypsum                N     HC &gt; 60% clay</span></span>
+<span><span class="co">#&gt;                         FieldPh SoilOdourValue AndicCharacteristics</span></span>
+<span><span class="co">#&gt; 1  pHCaCl2 of &lt; 4.2, if &lt; 4% OM  Petrochemical                    -</span></span>
+<span><span class="co">#&gt; 2  pHCaCl2 of &lt; 4.2, if &lt; 4% OM           None                    -</span></span>
+<span><span class="co">#&gt; 3 pHCaCl2 of &lt; 3.6, if &gt; 15% OM  Petrochemical                    -</span></span>
+<span><span class="co">#&gt; 4 pHCaCl2 of &lt; 4.6, if 4–15% OM  Petrochemical                    -</span></span>
+<span><span class="co">#&gt; 5 pHCaCl2 of &lt; 3.4, if 4–15% OM           None                    -</span></span>
+<span><span class="co">#&gt; 6  pHCaCl2 of &lt; 3.2, if &lt; 4% OM     Sulphurous                    -</span></span>
+<span><span class="co">#&gt;        OrganicMatterEstimation StructureGradeValue      StructureTypeValue</span></span>
+<span><span class="co">#&gt; 1    Dark grey Munsell value 4              Strong                   Platy</span></span>
+<span><span class="co">#&gt; 2         Grey Munsell value 5            Moderate                Granular</span></span>
+<span><span class="co">#&gt; 3         Grey Munsell value 6                Weak            Wedge-shaped</span></span>
+<span><span class="co">#&gt; 4       Grey Munsell value 5,5              Strong            Wedge-shaped</span></span>
+<span><span class="co">#&gt; 5   Light grey Munsell value 7                Weak          Rock structure</span></span>
+<span><span class="co">#&gt; 6 Light grey Munsell value 6,5  Moderate to strong Crumbs, lumps and clods</span></span>
+<span><span class="co">#&gt;                StructureCodeValue  StructureSizeValue CombiSoilStructureSize</span></span>
+<span><span class="co">#&gt; 1 Angular blocky (parallelepiped) Very coarse / thick      Medium and coarse</span></span>
+<span><span class="co">#&gt; 2 Angular blocky (parallelepiped)              Medium         Fine to coarse</span></span>
+<span><span class="co">#&gt; 3                  Angular blocky      Coarse / thick     Very fine and fine</span></span>
+<span><span class="co">#&gt; 4                  Rock structure Very coarse / thick         Fine to coarse</span></span>
+<span><span class="co">#&gt; 5                      Worm casts    Very fine / thin        Fine and medium</span></span>
+<span><span class="co">#&gt; 6                           Platy      Coarse / thick         Fine to coarse</span></span>
+<span><span class="co">#&gt;                        CombiSoilStructure   ConsistenceDryValue</span></span>
+<span><span class="co">#&gt; 1    One structure merging into the other soft to slightly hard</span></span>
+<span><span class="co">#&gt; 2    One structure merging into the other     hard to very hard</span></span>
+<span><span class="co">#&gt; 3    One structure merging into the other slightly hard to hard</span></span>
+<span><span class="co">#&gt; 4 Primary breaking to secondary structure        Extremely hard</span></span>
+<span><span class="co">#&gt; 5                 Both structures present                 Loose</span></span>
+<span><span class="co">#&gt; 6 Primary breaking to secondary structure slightly hard to hard</span></span>
+<span><span class="co">#&gt;     ConsistenceMoistValue           StickinessValue             PlasticityValue</span></span>
+<span><span class="co">#&gt; 1 very friable to friable           Slightly sticky slightly plastic to plastic</span></span>
+<span><span class="co">#&gt; 2                   Loose           Slightly sticky     plastic to very plastic</span></span>
+<span><span class="co">#&gt; 3                    Firm slightly sticky to sticky                 Non-plastic</span></span>
+<span><span class="co">#&gt; 4               Very firm           Slightly sticky                Very plastic</span></span>
+<span><span class="co">#&gt; 5       firm to very firm               Very sticky            Slightly plastic</span></span>
+<span><span class="co">#&gt; 6          Extremely firm                Non-sticky                     Plastic</span></span>
+<span><span class="co">#&gt;    MoistureValue                    BulkDensityMineralValue</span></span>
+<span><span class="co">#&gt; 1       Very wet                             angular blocky</span></span>
+<span><span class="co">#&gt; 2          Moist                             angular blocky</span></span>
+<span><span class="co">#&gt; 3          Moist angular blocky, prismatic, platy, columnar</span></span>
+<span><span class="co">#&gt; 4 Slightly moist                             angular blocky</span></span>
+<span><span class="co">#&gt; 5            Dry                                  prismatic</span></span>
+<span><span class="co">#&gt; 6            Wet                                  prismatic</span></span>
+<span><span class="co">#&gt;   BulkDensityPeatValue PeatDrainageValue PorosityValue VoidsClassificationValue</span></span>
+<span><span class="co">#&gt; 1               &gt; 0.17      Rather loose          High                 Channels</span></span>
+<span><span class="co">#&gt; 2               &gt; 0.17             Dense          High                 Channels</span></span>
+<span><span class="co">#&gt; 3            0.11–0.17   Almost swimming          High                Vesicular</span></span>
+<span><span class="co">#&gt; 4            0.07–0.11             Dense        Medium                    Vughs</span></span>
+<span><span class="co">#&gt; 5               &lt; 0.04             Dense     Very high             Interstitial</span></span>
+<span><span class="co">#&gt; 6            0.11–0.17             Loose           Low                    Vughs</span></span>
+<span><span class="co">#&gt;   VoidsDiameterValue PoresAbundanceValue CoatingAbundanceValue</span></span>
+<span><span class="co">#&gt; 1 Fine and very fine            Very few                  None</span></span>
+<span><span class="co">#&gt; 2  Medium and coarse                 Few              Dominant</span></span>
+<span><span class="co">#&gt; 3          Very fine                 Few                Common</span></span>
+<span><span class="co">#&gt; 4             Coarse                Many                  Many</span></span>
+<span><span class="co">#&gt; 5          Very fine                None              Abundant</span></span>
+<span><span class="co">#&gt; 6 Fine and very fine                 Few                  Many</span></span>
+<span><span class="co">#&gt;   CoatingContrastValue             CoatingNatureValue        CoatingFormValue</span></span>
+<span><span class="co">#&gt; 1                Faint                  Sand coatings              Dendroidal</span></span>
+<span><span class="co">#&gt; 2             Distinct                  Silica (opal)              Dendroidal</span></span>
+<span><span class="co">#&gt; 3                Faint          Clay and sesquioxides Discontinuous irregular</span></span>
+<span><span class="co">#&gt; 4             Distinct Slickensides, non intersecting              Dendroidal</span></span>
+<span><span class="co">#&gt; 5                Faint                   Sesquioxides              Dendroidal</span></span>
+<span><span class="co">#&gt; 6             Distinct              Calcium carbonate              Dendroidal</span></span>
+<span><span class="co">#&gt;    CoatingLocationValue CementationContinuityValue CementationFabricValue</span></span>
+<span><span class="co">#&gt; 1 Lamellae (clay bands)                     Broken                Nodular</span></span>
+<span><span class="co">#&gt; 2     Vertical pedfaces                 Continuous                  Platy</span></span>
+<span><span class="co">#&gt; 3              Pedfaces                     Broken              Vesicular</span></span>
+<span><span class="co">#&gt; 4  No specific location                     Broken             Pisolithic</span></span>
+<span><span class="co">#&gt; 5     Vertical pedfaces              Discontinuous                Nodular</span></span>
+<span><span class="co">#&gt; 6  No specific location              Discontinuous             Pisolithic</span></span>
+<span><span class="co">#&gt;   CementationNatureValue     CementationDegreeValue ConcentrationVolumeValue</span></span>
+<span><span class="co">#&gt; 1             Carbonates            Weakly cemented                   Common</span></span>
+<span><span class="co">#&gt; 2              Not known Compacted but non-cemented                 Dominant</span></span>
+<span><span class="co">#&gt; 3      Clay-sesquioxides                  Indurated                     None</span></span>
+<span><span class="co">#&gt; 4                    Ice            Weakly cemented                     Many</span></span>
+<span><span class="co">#&gt; 5                 Silica                  Indurated                 Abundant</span></span>
+<span><span class="co">#&gt; 6                   Clay        Moderately cemented                 Very few</span></span>
+<span><span class="co">#&gt;                    ConcentrationKindValue ConcentrationSizeValue</span></span>
+<span><span class="co">#&gt; 1                              Concretion                   Fine</span></span>
+<span><span class="co">#&gt; 2                                 Crystal                 Medium</span></span>
+<span><span class="co">#&gt; 3                                 Crystal                   Fine</span></span>
+<span><span class="co">#&gt; 4                                   Other                   Fine</span></span>
+<span><span class="co">#&gt; 5 Soft segregation (or soft accumulation)                 Coarse</span></span>
+<span><span class="co">#&gt; 6                                  Nodule                   Fine</span></span>
+<span><span class="co">#&gt;   ConcentrationShapeValue ArtefactsHardnessValue      ConcentrationNatureValue</span></span>
+<span><span class="co">#&gt; 1               Elongated                   Soft Iron-manganese (sesquioxides)</span></span>
+<span><span class="co">#&gt; 2               Irregular                   Soft       Carbonates (calcareous)</span></span>
+<span><span class="co">#&gt; 3                    Flat                   Soft            Iron (ferruginous)</span></span>
+<span><span class="co">#&gt; 4               Elongated                   Soft       Carbonates (calcareous)</span></span>
+<span><span class="co">#&gt; 5     Rounded (spherical)                   Hard                     Not known</span></span>
+<span><span class="co">#&gt; 6                 Angular                   Hard     Manganese (manganiferous)</span></span>
+<span><span class="co">#&gt;   ArtefactsColourValue RootsDiameterValue RootsAbundanceValue</span></span>
+<span><span class="co">#&gt; 1        Reddish brown    Fine and medium              Common</span></span>
+<span><span class="co">#&gt; 2              Greyish          Very fine                Many</span></span>
+<span><span class="co">#&gt; 3             Greenish Very fine and fine            Very few</span></span>
+<span><span class="co">#&gt; 4                White             Coarse                Many</span></span>
+<span><span class="co">#&gt; 5         Bluish-black    Fine and medium                None</span></span>
+<span><span class="co">#&gt; 6        Multicoloured             Medium                Many</span></span>
+<span><span class="co">#&gt;   BiologicalAbundanceValue           BiologicalFeaturesValue</span></span>
+<span><span class="co">#&gt; 1                   Common                       Pedotubules</span></span>
+<span><span class="co">#&gt; 2                     None Termite or ant channels and nests</span></span>
+<span><span class="co">#&gt; 3                     Many             Burrows (unspecified)</span></span>
+<span><span class="co">#&gt; 4                      Few                          Charcoal</span></span>
+<span><span class="co">#&gt; 5                     None                          Charcoal</span></span>
+<span><span class="co">#&gt; 6                      Few             Other insect activity</span></span>
+<span><span class="co">#&gt;                 ArtefactsKind                 DepositsValue1</span></span>
+<span><span class="co">#&gt; 1             Industrial dust Stratified (spoiled materials)</span></span>
+<span><span class="co">#&gt; 2                Waste liquid Stratified (spoiled materials)</span></span>
+<span><span class="co">#&gt; 3  Artesanal natural material Stratified (spoiled materials)</span></span>
+<span><span class="co">#&gt; 4            Synthetic liquid Stratified (spoiled materials)</span></span>
+<span><span class="co">#&gt; 5            Synthetic liquid Stratified (spoiled materials)</span></span>
+<span><span class="co">#&gt; 6 Pavements and paving stones Stratified (spoiled materials)</span></span>
+<span><span class="co">#&gt;                                                                                                           DepositsValue2</span></span>
+<span><span class="co">#&gt; 1 Grey to black, H2S smell, &gt; 30 percent artefacts (glass, ceramic, leather, wood, plastic, metals) --&gt; waste --&gt; ...UA2</span></span>
+<span><span class="co">#&gt; 2                                                                  Loamy, with carbonates --&gt; calcareous loam --&gt; ...UU3</span></span>
+<span><span class="co">#&gt; 3                                                                     Mixture of sand, silt and clay --&gt; loam --&gt; ...UU2</span></span>
+<span><span class="co">#&gt; 4                                                                  Loamy, with carbonates --&gt; calcareous loam --&gt; ...UU3</span></span>
+<span><span class="co">#&gt; 5                                            Dark grey to black, faecal smell, artefacts  --&gt;  faecal sludge  --&gt; ...UA2</span></span>
+<span><span class="co">#&gt; 6                                                     Dark grey to black, H2S smell  --&gt; dredge mud of lakes  --&gt; ...UA1</span></span>
+<span><span class="co">#&gt;              soildepthclass   siteid</span></span>
+<span><span class="co">#&gt; 1 major than observed depth siteid_1</span></span>
+<span><span class="co">#&gt; 2   equal to observed depth siteid_2</span></span>
+<span><span class="co">#&gt; 3 major than observed depth siteid_3</span></span>
+<span><span class="co">#&gt; 4   equal to observed depth siteid_4</span></span>
+<span><span class="co">#&gt; 5   equal to observed depth siteid_5</span></span>
+<span><span class="co">#&gt; 6   equal to observed depth siteid_6</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="amputing">Amputing<a class="anchor" aria-label="anchor" href="#amputing"></a>
 </h3>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#amp_data_soil=ampute(cut_data_soil,mech="MAR",prop = 0.25)</span></span>
+<code class="sourceCode R"><span><span class="co">#amp_data_soil=ampute(cut_data_soil,mech="MCAR",prop = 0.25)</span></span>
 <span><span class="co">#head(amp_data_soil$amp)</span></span></code></pre></div>
 </div>
 </div>
@@ -271,11 +580,15 @@
 <span>                    n_var<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span>,</span>
 <span>                    var_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span></span>
 <span>                    <span class="op">)</span></span>
+<span></span>
 <span><span class="va">sym_sin_gen_i</span><span class="op">=</span><span class="fu"><a href="../reference/sym_mtx.html">sym_mtx</a></span><span class="op">(</span>vector<span class="op">=</span><span class="va">gen_i_coords</span><span class="op">$</span><span class="va">coords</span><span class="op">$</span><span class="va">sin</span>,</span>
 <span>                    n_var<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span>,</span>
 <span>                    var_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span></span>
 <span>                    <span class="op">)</span></span>
-<span><span class="va">gen_i_corr</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="../reference/assure_corr.html">assure_corr</a></span><span class="op">(</span>n_var<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span>,corr<span class="op">=</span><span class="va">sym_sin_gen_i</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">gen_i_corr</span><span class="op">=</span><span class="fu"><a href="../reference/assure_corr.html">assure_corr</a></span><span class="op">(</span>n_var<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span>,corr<span class="op">=</span><span class="va">sym_sin_gen_i</span><span class="op">)</span></span>
+<span><span class="va">gen_i_corr</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">gen_i_corr</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/matrixcalc/man/is.positive.definite.html" class="external-link">is.positive.definite</a></span><span class="op">(</span><span class="va">gen_i_corr</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
 <span></span>
 <span><span class="va">sim_data_cop_gen_i</span><span class="op">=</span><span class="fu"><a href="../reference/set_sim_copula.html">set_sim_copula</a></span><span class="op">(</span>d<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">gen_att</span><span class="op">)</span>,</span>
 <span>                            lower_tri_corr <span class="op">=</span> <span class="va">gen_i_corr</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lower.tri.html" class="external-link">lower.tri</a></span><span class="op">(</span><span class="va">gen_i_corr</span>,diag<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">]</span>,</span>
@@ -296,9 +609,9 @@
 <span><span class="co">## for each of n_genotypes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cut_data_gen_i</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span>,<span class="fl">101</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   trait_1 trait_4   genotype_id</span></span>
-<span><span class="co">#&gt; 1       2       2 genotype_id_1</span></span>
-<span><span class="co">#&gt; 2       2       2 genotype_id_2</span></span>
-<span><span class="co">#&gt; 3       1       1 genotype_id_3</span></span>
+<span><span class="co">#&gt; 1       1       2 genotype_id_1</span></span>
+<span><span class="co">#&gt; 2       0       0 genotype_id_2</span></span>
+<span><span class="co">#&gt; 3       0       0 genotype_id_3</span></span>
 <span><span class="co">## the data will repeat across n_sites environments.</span></span>
 <span><span class="va">n_sites</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></span><span class="op">(</span><span class="va">soil_att_ex</span><span class="op">$</span><span class="va">siteid</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">sites_id</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"siteid_%d"</span>,<span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">n_sites</span><span class="op">)</span><span class="op">)</span></span>
@@ -308,14 +621,9 @@
 <span><span class="va">abemus_genomics</span><span class="op">$</span><span class="va">siteid</span><span class="op">=</span><span class="va">gens_site_id</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">abemus_genomics</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span>,<span class="fl">101</span>,<span class="fl">102</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>  </span>
 <span><span class="co">#&gt;   trait_1 trait_10   genotype_id   siteid</span></span>
-<span><span class="co">#&gt; 1       2        2 genotype_id_1 siteid_1</span></span>
-<span><span class="co">#&gt; 2       2        1 genotype_id_2 siteid_1</span></span>
-<span><span class="co">#&gt; 3       1        0 genotype_id_3 siteid_1</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">abemus_genomics</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span>,<span class="fl">101</span>,<span class="fl">102</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   trait_1 trait_10   genotype_id   siteid</span></span>
-<span><span class="co">#&gt; 1       2        2 genotype_id_1 siteid_1</span></span>
-<span><span class="co">#&gt; 2       2        1 genotype_id_2 siteid_1</span></span>
-<span><span class="co">#&gt; 3       1        0 genotype_id_3 siteid_1</span></span></code></pre></div>
+<span><span class="co">#&gt; 1       1        1 genotype_id_1 siteid_1</span></span>
+<span><span class="co">#&gt; 2       0        0 genotype_id_2 siteid_1</span></span>
+<span><span class="co">#&gt; 3       0        1 genotype_id_3 siteid_1</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -327,11 +635,17 @@
 <span></span>
 <span><span class="va">final_soil_gen</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">abemus_genomics</span>,<span class="va">cut_data_soil</span>, by<span class="op">=</span><span class="st">"siteid"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">final_soil_gen</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span>,<span class="fl">100</span>,<span class="fl">102</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt;     siteid trait_4 trait_99   genotype_id</span></span>
-<span><span class="co">#&gt; 1 siteid_1       2        1 genotype_id_1</span></span>
-<span><span class="co">#&gt; 2 siteid_1       2        2 genotype_id_2</span></span>
-<span><span class="co">#&gt; 3 siteid_1       1        2 genotype_id_3</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">final_soil_gen</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">120</span>,<span class="fl">105</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span>,<span class="fl">100</span>,<span class="fl">102</span>,<span class="fl">120</span>,<span class="fl">105</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       siteid trait_4 trait_99    genotype_id               CropClassValue1</span></span>
+<span><span class="co">#&gt; 1   siteid_1       2        2  genotype_id_1                    Vegetables</span></span>
+<span><span class="co">#&gt; 3   siteid_1       0        2  genotype_id_3                    Vegetables</span></span>
+<span><span class="co">#&gt; 120 siteid_5       1        0 genotype_id_10                    Vegetables</span></span>
+<span><span class="co">#&gt; 105 siteid_4       2        1  genotype_id_5 Semi-luxury foods and tobacco</span></span>
+<span><span class="co">#&gt;     WeatherConditionsValue_present</span></span>
+<span><span class="co">#&gt; 1                            Sleet</span></span>
+<span><span class="co">#&gt; 3                            Sleet</span></span>
+<span><span class="co">#&gt; 120                           Rain</span></span>
+<span><span class="co">#&gt; 105                           Snow</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="simulating-phenomics">Simulating phenomics<a class="anchor" aria-label="anchor" href="#simulating-phenomics"></a>
@@ -352,11 +666,11 @@
 <span></span>
 <span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/qplot.html" class="external-link">qplot</a></span><span class="op">(</span><span class="va">genotype_id</span>, <span class="va">target</span>, data <span class="op">=</span> <span class="va">dat</span>,</span>
 <span>       geom<span class="op">=</span> <span class="st">"boxplot"</span>, fill <span class="op">=</span> <span class="va">genotype_id</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">0.5</span>, hjust<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Simulated values of yield (t/ha) with Lasso"</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"yield (t/ha)"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="pkg_flow_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
+<p><img src="innovar_flow_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/qplot.html" class="external-link">qplot</a></span><span class="op">(</span><span class="va">siteid</span>, <span class="va">target</span>, data <span class="op">=</span> <span class="va">dat</span>,</span>
 <span>       geom<span class="op">=</span> <span class="st">"boxplot"</span>, fill <span class="op">=</span> <span class="va">siteid</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">0.5</span>, hjust<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Simulated values of yield (t/ha) with Lasso"</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"yield (t/ha)"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="pkg_flow_files/figure-html/unnamed-chunk-14-2.png" width="700"></p>
+<p><img src="innovar_flow_files/figure-html/unnamed-chunk-14-2.png" width="700"></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> <span class="co">#interaction.plot(dat$genotype, dat$environment, dat$yield, fixed = TRUE)</span></span>
 <span> <span class="va">dat</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -367,7 +681,7 @@
 <span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">siteid</span>, y <span class="op">=</span> <span class="va">mean_yield</span>, color <span class="op">=</span> <span class="va">genotype_id</span><span class="op">)</span> <span class="op">+</span></span>
 <span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html" class="external-link">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">genotype_id</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>   <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Interactions with Lasso"</span><span class="op">)</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"mean_yield (t/ha)"</span><span class="op">)</span><span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, vjust <span class="op">=</span> <span class="fl">0.5</span>, hjust<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="pkg_flow_files/figure-html/unnamed-chunk-14-3.png" width="700"></p>
+<p><img src="innovar_flow_files/figure-html/unnamed-chunk-14-3.png" width="700"></p>
 </div>
   </div>
 
