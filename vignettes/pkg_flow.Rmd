@@ -42,8 +42,6 @@ head(gen_att)
 
 load("/Volumes/T7 Touch/InnoVaR/data/soil_att_ex.rda")
 head(soil_att_ex)
-
-
 ```
 
 

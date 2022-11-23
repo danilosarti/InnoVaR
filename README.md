@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-<img src="https://github.com/danilosarti/InnoVaR/blob/main/badget/innovarbadget.png" width="240" height="276" align="right" />
+<img src="https://raw.githubusercontent.com/danilosarti/InnoVaR/main/badget/innovarbadget.png" width="240" height="276" align="right" />
 <!-- badges: end -->
 
 InnoVar is an R-package for simulating Multi Environmental Trials in a
