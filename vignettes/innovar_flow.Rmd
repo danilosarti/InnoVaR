@@ -4,9 +4,9 @@ author: "Danilo Sarti"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{InnoVar Flow}
+  %\VignetteIndexEntry{InnoVar simulations}
   %\VignetteEncoding{UTF-8}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{knitr::knitr}
 editor_options: 
   chunk_output_type: console
 ---

@@ -8,7 +8,9 @@
 #' @param levels_inc_all levels of above
 #' @param continuous_to_cut a matrix containing values simulated from copulas
 #' @param corrs a coorelation matrix
-#'
+#' @import tidyverse
+#' @import stats
+#' @import dplyr
 #' @return
 #' @export
 #'
@@ -29,9 +31,9 @@ cut_levels=function(categorical=soil_cat,
   ## copulas stuff returned as a matrix so we need to create a df
   continuous_to_cut=data.frame(continuous_to_cut)
   ## we need consider variables which does not need to have all levels of factor included when the slicing process is made
-  cat_not_all=categorical %>% select(-all_of(cat_inc_all_levels))
+  cat_not_all=categorical %>% dplyr::select(-dplyr::all_of(cat_inc_all_levels))
   # we need to consider variables which all levels need to be included
-  cat_all=categorical %>% select(all_of(cat_inc_all_levels))
+  cat_all=categorical %>% dplyr::select(dplyr::all_of(cat_inc_all_levels))
   #   ## we need to separate the continuous according to columns which need to correspond to cat_all
   #    sim_data_all=continuous_to_cut %>%
   #      select(all_of(cat_inc_all_levels))
@@ -70,7 +72,7 @@ cut_levels=function(categorical=soil_cat,
   for( j in cat_inc_all_levels ){
     #j="genotype_id" used just to check functions do not uncomment
     var_to_sort=names(sort(corrs[,j][order(corrs[,j])],decreasing = T)[2])
-    orderer_by_j=continuous_to_cut %>% arrange(var_to_sort)
+    orderer_by_j=continuous_to_cut %>% dplyr::arrange(var_to_sort)
     df_aus_x=data.frame("j"=(levels_inc_all[j]))
     orderer_by_j[j]=sprintf(paste0(j,"_%s"),seq(1:nrow(df_aus_x)))
     df_fin_cutdown_n_all[j]=orderer_by_j[j]

@@ -13,7 +13,11 @@
 #' @return a list with an coords a data set named coords that describes the association to be considered between variables of a module to be simulated, and details to map such information into a matrix.
 #' @export
 #'
-#' @examples module_coords(n_var=9,which_neg=c("2_1","6_2","1_9","1_6","2_3"),dis_neg_know_ass=c(-0.9300003, -0.9310004, -0.8684074),coo_known_neg_ass=c("2_1","6_2","1_9"),dis_pos_know_ass=c(0.5235988, 0.6435011, 1.1197695),coo_known_pos_ass=c("3_9","4_5","6_8"),by=0.001)
+#' @examples module_coords(n_var=9,which_neg=c("2_1","6_2","1_9","1_6","2_3"),
+#' dis_neg_know_ass=c(-0.9300003, -0.9310004, -0.8684074),
+#' coo_known_neg_ass=c("2_1","6_2","1_9"),
+#' dis_pos_know_ass=c(0.5235988, 0.6435011, 1.1197695),
+#' coo_known_pos_ass=c("3_9","4_5","6_8"),by=0.001)
 module_coords<-function(
   # n_var=9,
   #                       which_neg=c("2_1","6_2","1_9","1_6","2_3"),
@@ -21,7 +25,7 @@ module_coords<-function(
   #                       coo_known_neg_ass=c("2_1","6_2","1_9"),
   #                       dis_pos_know_ass=c(0.5235988, 0.6435011, 1.1197695),
   #                       coo_known_pos_ass=c("3_9","4_5","6_8"),
-  #                       by=0.001
+  #                       by=0.001,
   n_var=ncol(gen_att),
   which_neg = c("1_2","4_5","2_3","20_4","30_3"),
   dis_neg_know_ass =known_neg_dis_gen,

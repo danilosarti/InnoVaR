@@ -1,7 +1,7 @@
 #' assure_corr
 #'
 #' @param corr a matrix with values between -1 and 1 to be transforme in a proper correlation matrix
-#'
+#' @param n_var number of variables inside a module
 #' @return
 #' @export
 #'

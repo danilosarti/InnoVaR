@@ -7,6 +7,8 @@
 assure_corr(n_var = n_var, corr = corr)
 }
 \arguments{
+\item{n_var}{number of variables inside a module}
+
 \item{corr}{a matrix with values between -1 and 1 to be transforme in a proper correlation matrix}
 }
 \description{
