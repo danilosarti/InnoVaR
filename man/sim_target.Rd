@@ -2,7 +2,7 @@
 % Please edit documentation in R/sim_target.R
 \name{sim_target}
 \alias{sim_target}
-\title{Simulate univariate target variables}
+\title{simulate univariate target variables}
 \usage{
 sim_target(
   X_gene,
@@ -27,5 +27,5 @@ sim_target(
 \item{pars}{a list of parameters.}
 }
 \description{
-Simulate univariate target variables
+simulate univariate target variables
 }

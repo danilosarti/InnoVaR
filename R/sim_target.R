@@ -1,6 +1,6 @@
 # sim_target
 #'
-#' Simulate univariate target variables
+#' simulate univariate target variables
 #'
 #' @param X_gene matrix of genomic variables
 #' @param X_env  matrix of environmental variables

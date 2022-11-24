@@ -31,7 +31,16 @@
     <loc>/reference/cut_levels.html</loc>
   </url>
   <url>
+    <loc>/reference/final_soil_gen.html</loc>
+  </url>
+  <url>
     <loc>/reference/gen_att.html</loc>
+  </url>
+  <url>
+    <loc>/reference/generate_gamma_delta.html</loc>
+  </url>
+  <url>
+    <loc>/reference/generate_gamma_delta_sigmas.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
@@ -53,6 +62,9 @@
   </url>
   <url>
     <loc>/reference/soil_att_innovar.html</loc>
+  </url>
+  <url>
+    <loc>/reference/square_root_matrix.html</loc>
   </url>
   <url>
     <loc>/reference/sym_mtx.html</loc>
