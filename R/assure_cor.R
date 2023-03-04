@@ -26,8 +26,7 @@ assure_corr<-function(n_var=n_var,corr=corr){
 
   ## now add the identity and we have a valid correlation matrix
   assured_corr_mat <- D + diag(rep(1, n))
-  assured_corr_mat
-
+  assured_corr_mat=as.matrix(assured_corr_mat)
   return(assured_corr_mat)
 }
 
